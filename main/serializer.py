@@ -2,6 +2,12 @@ from rest_framework import serializers
 from . import models
 
 
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Group
+        fields = '__all__'
+
+
 class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Teacher
@@ -10,12 +16,6 @@ class TeacherSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Student
-        fields = '__all__'
-
-
-class GroupSerializer(serializers.ModelSerializer):
-    class Meta:
         depth = 1
-        model = models.Group
+        model = models.Student
         fields = '__all__'
